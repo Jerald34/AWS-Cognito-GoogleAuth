@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import AuthButtons from "../components/AuthButtons";
+import { useAuthFunctions } from "../components/AuthButtons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
+  const { signIn, signOut, auth } = useAuthFunctions();
   const openModal = (type) => setModal(type);
   const closeModal = () => setModal(null);
   const startLoading = () => {
@@ -69,33 +69,9 @@ export default function Home() {
               &times;
             </button>
             <h2 className="text-lg font-bold mb-4">{modal === "signUp" ? "Create an Account" : "Continue with Google"}</h2>
-            <button className="google-btn w-full flex items-center justify-center gap-2" onClick={() => openModal("account")}>
+            <button className="google-btn w-full flex items-center justify-center gap-2" onClick={signIn}>
               <Image src="/images/google.png" alt="Google Logo" width={20} height={20} />
               Sign in with Google
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Choose an Account Modal */}
-      {modal === "account" && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white text-black p-6 rounded shadow-md w-80 relative">
-            <button className="absolute top-2 right-2 text-2xl" onClick={closeModal}>
-              &times;
-            </button>
-            <h2 className="text-lg font-bold mb-4">Choose an Account</h2>
-            <button className="account-btn w-full flex items-center gap-3 mb-2" onClick={startLoading}>
-              <Image src="/images/profile.png" alt="User Avatar" width={30} height={30} className="rounded-full" />
-              <span>Juan Dela Cruz</span>
-            </button>
-            <button className="account-btn w-full flex items-center gap-3 mb-2" onClick={failLogin}>
-              <Image src="/images/profile.png" alt="User Avatar" width={30} height={30} className="rounded-full" />
-              <span>Mike Lim</span>
-            </button>
-            <button className="account-btn w-full flex items-center gap-3" onClick={() => openModal("signIn")}>
-              <Image src="/images/profile.png" alt="Add Account" width={30} height={30} />
-              <span>Add Account</span>
             </button>
           </div>
         </div>

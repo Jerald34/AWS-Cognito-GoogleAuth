@@ -10,12 +10,12 @@ export default function AuthCallback() {
     useEffect(() => {
         if (!auth.isLoading) {
         if (auth.isAuthenticated) {
-            router.push("/dashboard");  // Redirect after login
+            router.push("/dashboard"); // Redirect to dashboard after login
         } else if (auth.error) {
             console.error("Authentication error:", auth.error.message);
         }
         }
     }, [auth, router]);
 
-    return <p>Processing login...</p>;
-    }
+    return <p className="text-center text-lg">Processing login...</p>;
+}
