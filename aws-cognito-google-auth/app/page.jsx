@@ -1,15 +1,14 @@
 "use client";
 import { useState } from "react";
-import { useAuthFunctions } from "../components/AuthButtons";
 import Image from "next/image";
 import Link from "next/link";
+import AuthButtons from "./components/AuthButtons";
 
 export default function Home() {
   const [modal, setModal] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const { signIn, signOut, auth } = useAuthFunctions();
   const openModal = (type) => setModal(type);
   const closeModal = () => setModal(null);
   const startLoading = () => {
@@ -69,10 +68,7 @@ export default function Home() {
               &times;
             </button>
             <h2 className="text-lg font-bold mb-4">{modal === "signUp" ? "Create an Account" : "Continue with Google"}</h2>
-            <button className="google-btn w-full flex items-center justify-center gap-2" onClick={signIn}>
-              <Image src="/images/google.png" alt="Google Logo" width={20} height={20} />
-              Sign in with Google
-            </button>
+            <AuthButtons />
           </div>
         </div>
       )}

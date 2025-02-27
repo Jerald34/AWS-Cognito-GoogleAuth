@@ -1,5 +1,5 @@
 import "../app/globals.css"; // Import global styles
-import AuthWrapper from "../components/AuthWrapper";
+import AuthWrapper from "./components/AuthWrapper";
 
 export default function RootLayout({ children }) {
   return (

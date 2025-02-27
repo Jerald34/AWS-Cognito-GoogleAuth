@@ -1,6 +1,6 @@
 "use client";
+import EnhancedDashboard from "app/components/EnhancedDashboard";
 import { withAuth } from "../../hoc/withAuth";
-import EnhancedDashboard from "../../components/EnhancedDashboard";
 
 const ProtectedEnhancedDashboard = withAuth(EnhancedDashboard);
 
