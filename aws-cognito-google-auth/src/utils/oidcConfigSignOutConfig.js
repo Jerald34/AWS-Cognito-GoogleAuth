@@ -3,7 +3,7 @@ const uri =
     ? process.env.NEXT_PUBLIC_COGNITO_LOCAL_URL
     : process.env.NEXT_PUBLIC_COGNITO_PROD_URL;
 
-const oidcConfigSignOutConfig = () => {
+export const oidcConfigSignOutConfig = () => {
   const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID;
   const logoutUri = uri;
   const cognitoDomain = process.env.NEXT_PUBLIC_COGNITO_DOMAIN;
@@ -12,5 +12,3 @@ const oidcConfigSignOutConfig = () => {
   )}`;
   sessionStorage.clear();
 };
-
-export default oidcConfigSignOutConfig;

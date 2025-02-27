@@ -2,6 +2,7 @@
 import { useAuth } from "react-oidc-context";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ClipLoader } from "react-spinners";
 
 export default function AuthCallback() {
   const auth = useAuth();
@@ -17,5 +18,21 @@ export default function AuthCallback() {
     }
   }, [auth, router]);
 
-  return <p className="text-center text-lg">Processing login...</p>;
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        backgroundColor: "#f9f9f9",
+      }}
+    >
+      <ClipLoader size={64} />
+      <p style={{ marginTop: "20px", fontSize: "18px", color: "#333" }}>
+        Processing login...
+      </p>
+    </div>
+  );
 }

@@ -47,12 +47,12 @@ export default function Home() {
 
         <div className="w-1/2 flex flex-col items-center">
           <h1 className="text-3xl font-bold mb-6">Welcome</h1>
-          <div className="flex gap-6">
-            <div onClick={() => openModal("signUp")} className="cookieCard transform transition-transform hover:scale-105 bg-blue text-white p-6 rounded-lg shadow-lg cursor-pointer">
+          <div className="flex flex-col min-w-px gap-6">
+            <div onClick={() => openModal("signUp")} className="cookieCard transform transition-transform hover:scale-105 bg-indigo-600 text-white p-6 rounded-lg shadow-lg cursor-pointer">
               <span className="cookieHeading font-bold text-lg">Sign Up</span>
               <p className="cookieDescription mt-2">Create a new account and join us.</p>
             </div>
-            <div onClick={() => openModal("signIn")} className="cookieCard transform transition-transform hover:scale-105 p-6 rounded-lg shadow-lg cursor-pointer">
+            <div onClick={() => openModal("signIn")} className="cookieCard transform transition-transform hover:scale-105 bg-indigo-600 p-6 rounded-lg shadow-lg cursor-pointer">
               <span className="cookieHeading font-bold text-lg">Log In</span>
               <p className="cookieDescription mt-2">Access your account.</p>
             </div>
