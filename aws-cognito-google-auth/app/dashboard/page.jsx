@@ -2,8 +2,8 @@
 import EnhancedDashboard from "app/components/EnhancedDashboard";
 import { withAuth } from "../../hoc/withAuth";
 
-const ProtectedEnhancedDashboard = withAuth(EnhancedDashboard);
+const EnhancedDashboard = withAuth(EnhancedDashboard);
 
 export default function Dashboard() {
-    return <main><ProtectedEnhancedDashboard /></main>;
+    return <main><EnhancedDashboard /></main>;
 }
