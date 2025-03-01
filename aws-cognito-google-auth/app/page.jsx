@@ -29,78 +29,100 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#F3F4F6] text-[#000000]">
       {/* Navigation Header */}
-      <header className="w-full bg-white text-black fixed top-0 left-0 shadow-md flex justify-around py-4">
+      <header className="w-full bg-[#023e8a] text-[#caf0f8] fixed top-0 left-0 shadow-md flex justify-around py-4 font-montserrat">
         {["Home", "Marketplace", "About Us", "Contact Us"].map((item) => (
-          <Link key={item} href={`#${item.toLowerCase().replace(" ", "")}`} className="hover:bg-gray-200 px-4 py-2 rounded">
-            {item}
-          </Link>
-        ))}
-      </header>
+      <Link
+      key={item}
+      href={`#${item.toLowerCase().replace(" ", "")}`}
+      className="hover:bg-[#00b4d8]  px-4 py-2 rounded transition-colors"
+      >
+       {item}
+      </Link>
+      ))}
+    </header>
 
       {/* Main Content */}
       <main className="mt-24 flex justify-center items-center w-full">
-        <div className="w-1/2 flex justify-center">
-          <Image src="/images/banner.jpeg" alt="banner Illustration" width={500} height={500} />
-        </div>
+      <div className="w-1/2 flex justify-center relative">
 
-        <div className="w-1/2 flex flex-col items-center">
-          <h1 className="text-3xl font-bold mb-6">Welcome</h1>
-          <div className="flex flex-col min-w-px gap-6">
-            <div onClick={() => openModal("signUp")} className="cookieCard transform transition-transform hover:scale-105 bg-indigo-600 text-white p-6 rounded-lg shadow-lg cursor-pointer">
-              <span className="cookieHeading font-bold text-lg">Sign Up</span>
-              <p className="cookieDescription mt-2">Create a new account and join us.</p>
-            </div>
-            <div onClick={() => openModal("signIn")} className="cookieCard transform transition-transform hover:scale-105 bg-indigo-600 p-6 rounded-lg shadow-lg cursor-pointer">
-              <span className="cookieHeading font-bold text-lg">Log In</span>
-              <p className="cookieDescription mt-2">Access your account.</p>
-            </div>
-          </div>
-        </div>
-      </main>
+      {/* Animated Image */}
+     <div className="animate-slide-in">
+      <Image
+       src="/images/banner.jpeg"
+       alt="banner Illustration"
+        width={500}
+      height={500}
+      className="rounded-lg shadow-lg"
+        />
+     </div>
+     </div>
 
-      {/* Sign-In Modal */}
+     <div className="w-1/2 flex flex-col items-center">
+     <h1 className="text-5xl font-extrabold mb-4 text-center text-[#0096c7] animate-typing overflow-hidden whitespace-nowrap border-r-4 border-indigo-500">
+      The Ultimate Marketplace <br /> for Digital Marketing! </h1>
+     <p className="text-xl font-bold text-gray-800 text-center mt-6 animate-fade-in">
+     "Buy and sell with confidence—seamlessly connect <br />  with trusted sellers and buyers."</p>
+
+
+
+     <div className="flex flex-col min-w-px gap-6 mt-8">
+     <div 
+     onClick={() => openModal("signUp")} 
+     className="cookieCard transform transition-transform hover:scale-105 bg-[#023e8a] text-white p-6 rounded-md shadow-lg cursor-pointer w-full hover:bg-[#0353a4] hover:shadow-xl">
+     <span className="cookieHeading font-bold text-lg">Get Started</span>
+     <p className="cookieDescription mt-2">Sign in with Google to continue.</p>
+    </div>
+    </div>
+    </div>
+    </main>
+
+     {/* Sign-In Modal */} 
       {modal && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white text-black p-6 rounded shadow-md w-80 relative">
-            <button className="absolute top-2 right-2 text-2xl" onClick={closeModal}>
-              &times;
-            </button>
-            <h2 className="text-lg font-bold mb-4">{modal === "signUp" ? "Create an Account" : "Continue with Google"}</h2>
-            <AuthButtons />
-          </div>
-        </div>
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white text-black p-6 rounded shadow-md w-80 relative">
+      <button className="absolute top-2 right-2 text-2xl" onClick={closeModal}>  &times;
+      </button>
+      <h2 className="text-lg font-bold mb-2">
+      {modal === "signUp" ? "Sign in with Google" : "Continue with Google"}
+      </h2>
+      <p className="text-sm text-gray-600 mb-4">
+        Quick and easy login—no extra passwords needed!</p>
+      <AuthButtons />
+       </div>
+      </div>
       )}
+
 
       {/* Loading Modal */}
       {loading && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center">
-            <div className="loader mx-auto"></div>
-            <p className="mt-2">Signing in...</p>
-          </div>
-        </div>
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center">
+      <div className="loader mx-auto"></div>
+      <p className="mt-2">Signing in...</p>
+      </div>
+      </div>
       )}
 
       {/* Success Modal with Animation */}
       {success && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center animate-fade-in animate-scale-up">
-            <p className="text-green-500 text-4xl font-bold animate-pop">✅</p>
-            <p className="text-lg font-bold mt-2">Success!</p>
-          </div>
-        </div>
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center animate-fade-in animate-scale-up">
+      <p className="text-green-500 text-4xl font-bold animate-pop">✅</p>
+      <p className="text-lg font-bold mt-2">Success!</p>
+      </div>
+       </div>
       )}
 
       {/* Error Modal */}
       {error && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center">
-            <p className="text-red-500 text-4xl font-bold">❌</p>
-            <p className="text-lg font-bold mt-2">Login Failed</p>
-          </div>
-        </div>
+      <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div className="bg-white text-black p-6 rounded shadow-md w-80 text-center">
+      <p className="text-red-500 text-4xl font-bold">❌</p>
+      <p className="text-lg font-bold mt-2">Login Failed</p>
+      </div>
+      </div>
       )}
     </div>
   );

@@ -9,7 +9,7 @@ export default function AuthButtons() {
 
   if (auth.isLoading) {
     return (
-      <button className="flex gap-3 items-center justify-center px-4 py-2 text-white bg-indigo-500 rounded-md cursor-not-allowed w-full">
+      <button className="flex gap-3 items-center justify-center px-4 py-2 text-white bg-[#48cae4] rounded-md cursor-not-allowed w-full">
         <ClipLoader size={24} color="white" />
         Processing…
       </button>
@@ -30,7 +30,7 @@ export default function AuthButtons() {
   return (
     <>
       <button
-        className="px-4 py-2 border-sky-100 w-full flex items-center justify-center gap-2 text-white bg-indigo-500 rounded-md"
+        className="px-4 py-2 border border-gray-300 w-full flex items-center justify-center gap-2 text-black bg-white rounded-md hover:border-gray-400 transition"
         onClick={() => auth.signinRedirect()}
       >
         <Image
@@ -39,8 +39,8 @@ export default function AuthButtons() {
           width={20}
           height={20}
         />
-        Sign in with Google
+        Continue with Google
       </button>
     </>
   );
-}
+}  
