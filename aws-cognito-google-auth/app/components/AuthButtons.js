@@ -27,7 +27,7 @@ export default function AuthButtons() {
     );
   }
 
-  {/*  return (
+    return (
     <>
       <button
         className="px-4 py-2 border border-gray-300 w-full flex items-center justify-center gap-2 text-black bg-white rounded-md hover:border-gray-400 transition"
@@ -44,5 +44,3 @@ export default function AuthButtons() {
     </>
   );
 }  
-*/}
-  }
