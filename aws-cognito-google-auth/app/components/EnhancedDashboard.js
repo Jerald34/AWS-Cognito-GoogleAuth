@@ -48,10 +48,7 @@ export default function EnhancedDashboard() {
           {/* Profile Card */}
           <div className="bg-white shadow-md rounded-lg p-4 w-full max-w-sm text-center">
             <img
-              src={
-                auth?.user?.profile?.picture ||
-                "https://via.placeholder.com/150"
-              }
+              src="https://www.gravatar.com/avatar/?d=mp"
               alt="Profile"
               className="w-24 h-24 mx-auto rounded-full border-2 border-[#023e8a]"
             />
