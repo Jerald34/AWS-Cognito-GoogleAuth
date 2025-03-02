@@ -20,14 +20,14 @@ export default function AuthButtons() {
     return (
       <button
         onClick={() => oidcConfigSignOutConfig()}
-        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+        className="block bg-[#caf0f8] hover:bg-red-600 text-black px-2 py-1 text-sm rounded"
       >
         Sign Out
       </button>
     );
   }
 
-  {/*  return (
+  return (
     <>
       <button
         className="px-4 py-2 border border-gray-300 w-full flex items-center justify-center gap-2 text-black bg-white rounded-md hover:border-gray-400 transition"
@@ -43,6 +43,4 @@ export default function AuthButtons() {
       </button>
     </>
   );
-}  
-*/}
-  }
+}
